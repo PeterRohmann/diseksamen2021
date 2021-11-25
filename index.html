@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <h1>
+        Welcome to the frontpage.
+    </h1>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>  
+
+    <table class="register-form">
+        <label for="create">Create a client</label><br>
+        <br>
+        <input type="text" id="firstnameid" placeholder="Firstname"/>
+        <input type="text" id="lastnameid" placeholder="Lastname"/>
+        <input type="text" id="streetAddress" placeholder="Street Address"/>
+        <input type="text" id="city" placeholder="City"/>
+        <input type="submit" id="submitclient" value="Submit" onclick= "validate()"/> 
+        </p>
+    </table>  
+<br>
+<br>
+<table class="updateregister-form">
+    <label for="create">Update a client</label><br>
+    <br>
+    <input type="text" id="updateclientId" placeholder="clientId"/>
+    <input type="text" id="updatefirstnameid" placeholder="Firstname"/>
+    <input type="text" id="updatelastnameid" placeholder="Lastname"/>
+    <input type="text" id="updatestreetAddress" placeholder="Street Address"/>
+    <input type="text" id="updatecity" placeholder="City"/>
+    <input type="submit" id="submitclient" value="Submit" onclick= "update()"/> 
+    </p>
+</table>  
+<br>
+<br>
+<table class="updateregister-form">
+    <label for="create">Delete a client</label><br>
+    <br>
+    <input type="text" id="deleteclientId" placeholder="clientId"/>
+    <input type="submit" id="submitclient" value="Submit" onclick= "deleteClient()"/> 
+    </p>
+</table>  
+<br>
+<br>
+<table class="updateregister-form">
+    <label for="create">Get a client</label><br>
+    <br>
+    <input type="text" id="getclientId" placeholder="clientId"/>
+    <input type="submit" id="submitclient" value="Submit" onclick= "getClient()"/> 
+    <p id="getfirstname"></p>
+    <p id="getlastname"></p>
+    <p id="getstreetaddress"></p>
+    <p id="getcity"></p>
+    </p>
+</table>  
+<br>
+<br>
+<br>
+<br>
+<form class="register-form">
+    <label for="create">Make reservation</label><br>
+    <br>
+    <input type="date" id="date" placeholder="Date"/>
+    <br>
+    <input type="text" id="hotelName" placeholder="Hotel Name"/>
+    <p>Which price?</p>
+            <input type="radio" id="750" name="price" value="750">
+            <label for="hovedstaden">750</label><br>
+            <input type="radio" id="1500" name="price" value="1500">
+            <label for="hovedstaden">1500</label><br>
+    <input type="submit" id="submitreservation" value="Submit" onclick= "validate()"/> 
+    </p>
+</form>  
+<br>
+<br>
+
+<br>
+<br>
+<br>
+<br>
+<form class="register-form">
+    <label for="create">Update reservation</label><br>
+    <br>
+    <input type="date" id="updatedate" placeholder="Date"/>
+    <br>
+    <input type="text" id="updatehotelName" placeholder="Hotel Name"/>
+    <p>Which price?</p>
+            <input type="radio" id="update750" name="price" value="750">
+            <label for="hovedstaden">750</label><br>
+            <input type="radio" id="update1500" name="price" value="1500">
+            <label for="hovedstaden">1500</label><br>
+    <input type="submit" id="submitreservation" value="Submit" onclick= "validate()"/> 
+    </p>
+</form>  
+
+</body>
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="./create.js"></script>
+    <script src="./update.js"></script>
+    <script src="./delete.js"></script>
+    <script src="./get.js"></script>
+</html>
