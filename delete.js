@@ -15,7 +15,7 @@ function deleteClient() {
             console.log(deleteclientId.value)
             //let user = new User (userdata)
         
-            axios.delete("http://localhost:8080/reservations", { data: {userdata}})
+            axios.delete("https://localhost:8080/clients", { data: {userdata}})
             .then(function(response){
             console.log(response)
             })

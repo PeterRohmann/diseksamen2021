@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 // 3. Finish the account schema
 
-const AccountSchema = new mongoose.Schema({
+const ClientSchema = new mongoose.Schema({
     clientId: String,
     firstName: String,
     lastname: String,
@@ -10,7 +10,7 @@ const AccountSchema = new mongoose.Schema({
     city: String
 });
 
-const model = mongoose.model('clients', AccountSchema);
+const model = mongoose.model('clients', ClientSchema);
 
 module.exports = model;
 

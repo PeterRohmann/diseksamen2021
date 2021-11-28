@@ -21,13 +21,13 @@ function getClient() {
             console.log(getclientId.value)
             //let user = new User (userdata)
         
-            axios.get(`http://localhost:8080/reservations?clientId=${getclientId.value}`)
+            axios.get(`https://localhost:8080/clients?clientId=${getclientId.value}`)
             .then(function(response){
             console.log(response.data[0])
-            document.getElementById("getfirstname").innerHTML = response.data[0].firstName;
-            document.getElementById("getlastname").innerHTML = response.data[0].lastname;
-            document.getElementById("getstreetaddress").innerHTML = response.data[0].streetAddress;
-            document.getElementById("getcity").innerHTML = response.data[0].city;
+            document.getElementById("getfirstname").innerHTML = "First Name: " + response.data[0].firstName;
+            document.getElementById("getlastname").innerHTML = "Last Name: " + response.data[0].lastname;
+            document.getElementById("getstreetaddress").innerHTML = "Street Address: " + response.data[0].streetAddress;
+            document.getElementById("getcity").innerHTML = "City: " + response.data[0].city;
             })
             .then(function(data){
                 console.log(data)

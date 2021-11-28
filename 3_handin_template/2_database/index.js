@@ -1,6 +1,6 @@
 const db = require("./db.js");
 const accountModel = require("./account.js");
-
+const TravelSchema = require("./account.js");
 
 db.getConnection().then(async res => {
     // if a connection was successfully achieved
