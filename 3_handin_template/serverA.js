@@ -16,7 +16,7 @@ const serverC = require('./serverC.js')
 
 const servers = ['https://localhost:3000', 'https://localhost:3001' ];
 
-//process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0" // Avoids DEPTH_ZERO_SELF_SIGNED_CERT error for self-signed certs
+process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0" // Avoids DEPTH_ZERO_SELF_SIGNED_CERT error for self-signed certs
 const options = {
     key: fs.readFileSync('./ssl/client-key.pem'),
     cert: fs.readFileSync('./ssl/client-cert.pem'),
