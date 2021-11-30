@@ -28,7 +28,7 @@ app.use('/clients', accountRoute)
 
 //Initial route
 app.get('/', (req, res) => {
-    res.send('Welcome to the banking app fra server B');
+    res.send('Welcome to the banking app fra server C');
 });
 
 app.get('*', handler(2)).post('*', handler(2));
@@ -39,7 +39,7 @@ app.get('*', handler(2)).post('*', handler(2));
 
 const sslServer = https.createServer(options, app)
 //Start listening
-sslServer.listen(3000, () => {
-    console.log('Server listening on 3000');
+sslServer.listen(3001, () => {
+    console.log('Server listening on 3001');
 });
 
