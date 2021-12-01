@@ -4,11 +4,8 @@ const bodyParser = require('body-parser')
 const fs = require('fs')
 const request = require('request')
 const https = require('https')
-var http = require('http')
-, httpProxy = require('http-proxy')
-, seaport = require('seaport')
-//Here we register a service with seaport. 
-, ports = seaport.connect('localhost', 9090);
+const got = require('got');
+
 
 
 const serverB = require('./serverB.js')
@@ -24,22 +21,58 @@ const options = {
 
 let cur = 0;
 
-const handler = (req, res) => {
+
+const handler = async (req, res) => {
     // Pipe the vanilla node HTTP request (a readable stream) into `request`
     // to the next server URL. Then, since `res` implements the writable stream
     // interface, you can just `pipe()` into `res`.
-    req.pipe(request({ url: servers[cur] + req.url })).pipe(res);
+    console.log(req.method)
+    request({ url: servers[cur] + req.url }).pipe(res);
+    if(req.method == "GET"){
+        request({ url: servers[cur] + req.url }).pipe(res);
+    }
+
+    if(req.method == "POST"){
+    const {body} = await got.post(servers[cur] + req.url, {
+		json: {
+			body: req.body
+		},
+		responseType: 'json'
+	});
+}
+    if(req.method == "PUT"){
+        const {body} = await got.put(servers[cur] + req.url, {
+            json: {
+                body: req.body
+            },
+            responseType: 'json'
+        });
+    }
+    
+    if(req.method == "DELETE"){
+        const {body} = await got.delete(servers[cur] + req.url, {
+            json: {
+                body: req.body
+            },
+            responseType: 'json'
+        });
+    }
+   
+ 
     cur = (cur + 1) % servers.length;
+    
   };
 
+app.use(bodyParser.json());
 
 
 //Added Json Body-parser
-app.use(bodyParser.json());
 
 //Import Routes
+/*
 const accountRoute = require('./routes/accounts');
 app.use('/clients', accountRoute)
+*/
 
 //Initial route
 /*
@@ -50,7 +83,11 @@ app.get('/', (req, res) => {
 
 
 //const server = app.get('*', handler).post('*', handler);
-app.get('*', handler).post('*', handler);
+app.get('*', handler)
+app.post('*', handler);
+app.put('*', handler);
+app.delete('*', handler);
+
 //server.listen(5000);
 
 const sslServer = https.createServer(options, app)

@@ -46,7 +46,7 @@ else
             
             axios.post("https://localhost:8080/clients/reservations", reservationdata)
             .then(function(response){
-                alert("Client does not exist")
+                //alert("Client does not exist")
             })
         alert("Reservation created")
 		}

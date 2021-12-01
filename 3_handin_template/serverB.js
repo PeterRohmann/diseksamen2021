@@ -23,15 +23,22 @@ app.use(bodyParser.json());
 
 
 //Import Routes
+
 const accountRoute = require('./routes/accounts');
 app.use('/clients', accountRoute)
+
 
 //Initial route
 app.get('/', (req, res) => {
     res.send('Welcome to the banking app fra server B');
 });
 
-app.get('*', handler(2)).post('*', handler(2));
+
+app.get('*', handler(1))
+app.post('*', handler(1));
+app.put('*', handler(1));
+app.delete('*', handler(1));
+
 
 
 //app.listen(3001)
